@@ -44,18 +44,7 @@ public class FestivosControlador {
                     .body("Ocurrió un error inesperado. Por favor intenta nuevamente.");
         }
     }
-    @GetMapping("/test-conexion")
-    public ResponseEntity<String> pruebaConexion() {
-        try {
-            // Intentar acceder a la base de datos para verificar la conexión
-            List<Festivo> festivos = servicio.listar(); // Esto forzará una consulta a la base de datos
-            return ResponseEntity.ok("Conexión exitosa, se han encontrado " + festivos.size() + " festividades.");
-        } catch (Exception e) {
-            return ResponseEntity
-                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error de conexión a la base de datos: " + e.getMessage());
-        }
-    }
+    
     
 }
 
