@@ -20,11 +20,6 @@ public class FestivosServicio implements IFestivoServicio {
     }
 
     @Override
-    public List<Festivo> listar() {
-        return repositorio.findAll();
-    }
-
-    @Override
     public String EsFestivo(int year, int month, int day) {
         try {
             if (year<0){

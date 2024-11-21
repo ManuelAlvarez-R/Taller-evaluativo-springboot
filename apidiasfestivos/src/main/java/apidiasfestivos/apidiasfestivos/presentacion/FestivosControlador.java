@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @RestController
-@RequestMapping("/api/diasFestivos")
+@RequestMapping("/festivos")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class FestivosControlador {
     //inyeccion//
@@ -27,11 +27,8 @@ public class FestivosControlador {
         this.servicio = servicio;
     }
     //fin de inyeccion//
-        @GetMapping("/listar")    
-        public List<Festivo> listar() {
-        return servicio.listar();
-    }
-    @RequestMapping(value = "/EsFestivo/{year}/{month}/{day}", method = RequestMethod.GET)
+      
+    @RequestMapping(value = "/verificar/{year}/{month}/{day}", method = RequestMethod.GET)
     public ResponseEntity<String> EsFestivo(@PathVariable int year, @PathVariable int month, @PathVariable int day) {
         try {
             String resultado = servicio.EsFestivo(year, month, day);
